@@ -4,7 +4,7 @@ class Card extends React.Component {
     render() {
         return (
             <div className="px-6 text-slate-200 mt-5">
-                P
+                Ini Statefull Component
             </div>
         )
     }

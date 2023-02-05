@@ -1,7 +1,7 @@
 const Navbar = () => {
     return (
         <div className="bg-slate-800 py-5 px-6 text-slate-100 flex justify-between items-center">
-            <h1 className="font-bold text-lg text-blue-400">Hello Wordl!</h1>
+            <h1 className="font-bold text-lg text-blue-400">Ini Stateless Component</h1>
 
             <nav>
                 <ul className="flex gap-6">
