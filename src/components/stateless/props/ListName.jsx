@@ -4,8 +4,8 @@ const ListName = (props) => {
             <h1 className="font-bold text-blue-600 text-lg">{props.number}</h1>
 
             <hgroup>
-                <h1 className="font-bold text-lg">{props.name}</h1>
-                <p className="text-sm mt-2 text-slate-400">{props.location}</p>
+                <h1 className="font-bold text-lg">{props.tools}</h1>
+                <p className="text-sm mt-2 text-slate-400">{props.tools_name}</p>
             </hgroup>
         </div>
     )
@@ -13,8 +13,8 @@ const ListName = (props) => {
 
 ListName.defaultProps = {
     number: '00',
-    name: 'input your name',
-    location: 'input your location'
+    name: 'input type tools',
+    location: 'input name tools'
 }
 
 export default ListName
