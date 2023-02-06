@@ -4,7 +4,7 @@ import ListCard from "../stateless/props/ListCard";
 class ListTools extends React.Component {
     render() {
         return (
-            <section className="px-6 lg:px-12 xl:px-36">
+            <section className="px-6 lg:px-12 xl:px-36 mb-8">
                 <h1 className='mt-6 mb-4 text-xl font-bold text-slate-200'>Peralatan yang harus dipersiapkan: </h1>
                 
                 <ListCard number="01" tools="Device" tools_name="Laptop / Komputer"/>
