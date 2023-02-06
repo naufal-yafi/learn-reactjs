@@ -1,6 +1,6 @@
 const Card = (props) => {
     return (
-        <article className="px-6 lg:px-36 text-slate-200 mb-5">
+        <article className="text-slate-200 mb-5">
             <hgroup className="bg-blue-600 px-6 py-4 rounded-xl">
                 <h1 className="text-slate-200 font-bold text-2xl">
                     {props.title}

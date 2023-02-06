@@ -5,7 +5,7 @@ class OtherExplanation extends React.Component {
     render() {
         return(
             <details className='my-7'>
-                    <summary className='px-6 lg:px-36 mb-4 text-xl font-bold cursor-pointer text-slate-200'>Penjelasan Lainnya</summary>
+                    <summary className='mb-4 text-xl font-bold cursor-pointer text-slate-200'>Penjelasan Lainnya</summary>
                     
                     <Card 
                         title="Props"
