@@ -1,7 +1,8 @@
 import React from 'react'
+import Comment from '../features/Comments'
 import GiveRate from '../features/GiveRate'
-import Header from '../components/stateless/props/Header'
 import Footer from '../components/stateless/Footer'
+import Header from '../components/statefull/Header'
 import ListTools from './../components/statefull/ListTools'
 import ListKnowledge from '../components/statefull/ListKnowledge'
 import CardWithoutDetails from '../components/stateless/CardWithoutDetails'
@@ -9,7 +10,7 @@ import CardWithoutDetails from '../components/stateless/CardWithoutDetails'
 class HomePage extends React.Component {
     state = {
         rate: 0,
-        showNavbar: 1
+        width: "100%"
     }
 
     rateChange = (newRate) => {
@@ -17,11 +18,17 @@ class HomePage extends React.Component {
             rate: newRate
         })
     }
+
+    widthChange = (valueWidth) => {
+        this.setState({
+            width: valueWidth
+        })
+    } 
     
     render() {
         return (
-            <main className='bg-slate-900'>
-                <Header rate={this.state.rate}/>
+            <main className='bg-slate-900' style={{width: this.state.width, transition: "0.3s"}}>
+                <Header rate={this.state.rate} actionMenuClick={(value) => this.widthChange(value)}/>
 
                 <CardWithoutDetails/>
 
@@ -30,6 +37,8 @@ class HomePage extends React.Component {
                 <ListKnowledge/>
                 <ListTools/>
 
+                <Comment/>
+                
                 <Footer/>
             </main>
         )

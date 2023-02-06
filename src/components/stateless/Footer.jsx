@@ -6,7 +6,7 @@ const Footer = () => {
             <hgroup>
                 <figure className='flex gap-4'>
                     <img src={logo} alt="logo react" className='w-6'/>
-                    <h1>Sinau React</h1>
+                    <h1>Sinau ReactJS</h1>
                 </figure>
                 <p className='text-slate-400 text-sm mt-2'>React merupakan framework frontend yang seru untuk dipelajari.</p>
             </hgroup>
