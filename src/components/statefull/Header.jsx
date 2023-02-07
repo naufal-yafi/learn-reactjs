@@ -3,7 +3,6 @@ import logo from './../../assets/images/logo512.png'
 import burgerMenu from './../../assets/icons/menu.svg'
 import navbarScroll from '../../features/navbarScroll'
 import React, { Fragment } from 'react'
-import Sidebar from '../stateless/Sidebar'
 
 class Header extends React.Component {
     state = {
@@ -14,7 +13,7 @@ class Header extends React.Component {
         if (this.state.condition) {
             this.props.actionMenuClick("450px")
         } else {
-            this.props.actionMenuClick("50px")
+            this.props.actionMenuClick("55px")
         }
     }
 
