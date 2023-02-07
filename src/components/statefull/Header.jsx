@@ -8,22 +8,13 @@ import Sidebar from '../stateless/Sidebar'
 class Header extends React.Component {
     state = {
         condition: false,
-        valueTransition: "translateX(200%)"
     }
 
     mainWidth = () => {
         if (this.state.condition) {
-            this.props.actionMenuClick("60%")
-            
-            this.setState({
-                valueTransition: "translateX(0%)"
-            })
+            this.props.actionMenuClick("450px")
         } else {
-            this.props.actionMenuClick("100%")
-
-            this.setState({
-                valueTransition: "translateX(200%)"
-            })
+            this.props.actionMenuClick("50px")
         }
     }
 
@@ -60,8 +51,6 @@ class Header extends React.Component {
                         </button>
                     </div>
                 </header>
-
-                <Sidebar condition="true" translateX={this.state.valueTransition}/>
             </Fragment>
         )
     }

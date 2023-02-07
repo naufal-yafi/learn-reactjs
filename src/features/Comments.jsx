@@ -38,7 +38,7 @@ class Comment extends React.Component {
     render() {
 
         return(
-            <div className="px-6 lg:px-12 xl:px-36 mb-6 text-slate-200">
+            <div className="mb-6 text-slate-200">
                 <InputComment/>
 
                 <hr  className="mt-10 mb-10 border-slate-700 border-2 rounded-full"/>

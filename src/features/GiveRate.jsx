@@ -35,7 +35,7 @@ class GiveRate extends React.Component {
     
     render() {
         return (
-            <section className="text-slate-200 px-6 lg:px-12 xl:px-36">
+            <section className="text-slate-200">
                 <hgroup>
                     <h1 className='mt-6 text-xl font-bold'>Berikan Rating (0 - 5) : </h1>
                     <p className="mt-1 mb-4 text-slate-400">Rating ini digunakan sebagai feedback ketika sudah membaca artikel yang saya buat.</p>

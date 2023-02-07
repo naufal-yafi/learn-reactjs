@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Comment from '../features/Comments'
 import GiveRate from '../features/GiveRate'
 import Footer from '../components/stateless/Footer'
@@ -6,11 +6,12 @@ import Header from '../components/statefull/Header'
 import ListTools from './../components/statefull/ListTools'
 import ListKnowledge from '../components/statefull/ListKnowledge'
 import CardWithoutDetails from '../components/stateless/CardWithoutDetails'
+import Sidebar from '../components/stateless/Sidebar'
 
 class HomePage extends React.Component {
     state = {
         rate: 0,
-        width: "100%"
+        mainWidth: "50px"
     }
 
     rateChange = (newRate) => {
@@ -21,26 +22,33 @@ class HomePage extends React.Component {
 
     widthChange = (valueWidth) => {
         this.setState({
-            width: valueWidth
+            mainWidth: valueWidth
         })
     } 
     
     render() {
         return (
-            <main className='bg-slate-900' style={{width: this.state.width, transition: "0.3s"}}>
+            <Fragment>
                 <Header rate={this.state.rate} actionMenuClick={(value) => this.widthChange(value)}/>
-
-                <CardWithoutDetails/>
-
-                <GiveRate actionRate={(value) => this.rateChange(value)}/>
-
-                <ListKnowledge/>
-                <ListTools/>
-
-                <Comment/>
                 
+                <div className='flex pt-20 px-6 lg:px-12 xl:px-36 gap-5'>
+                    <main className='bg-slate-900' style={{width: "100%", transition: "0.3s"}}>
+                        <CardWithoutDetails/>
+
+                        <GiveRate actionRate={(value) => this.rateChange(value)}/>
+
+                        <ListKnowledge/>
+                        <ListTools/>
+
+                        <Comment/>
+                        
+                    </main>
+
+                    <Sidebar width={this.state.mainWidth}/>
+                </div>
+
                 <Footer/>
-            </main>
+            </Fragment>
         )
     }
 }
