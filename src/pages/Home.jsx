@@ -1,19 +1,15 @@
 import React, { Fragment } from 'react'
 import Comment from '../features/Comments'
 import GiveRate from '../features/GiveRate'
-import Footer from '../components/stateless/Footer'
 import Header from '../components/statefull/Header'
+import Footer from '../components/stateless/Footer'
 import ListTools from './../components/statefull/ListTools'
 import ListKnowledge from '../components/statefull/ListKnowledge'
 import CardWithoutDetails from '../components/stateless/CardWithoutDetails'
-import Sidebar from '../components/statefull/Sidebar'
-import './Home.css'
 
 class HomePage extends React.Component {
     state = {
-        rate: 0,
-        mainWidth: "55px",
-        class: "normal"
+        rate: 0
     }
 
     rateChange = (newRate) => {
@@ -21,47 +17,22 @@ class HomePage extends React.Component {
             rate: newRate
         })
     }
-
-    mainWidthChange = () => {
-        if (this.state.mainWidth === "55px") {
-            this.setState({
-                class: "normal"
-            })
-        } else {
-            this.setState({
-                class: "mini"
-            })
-        }
-    }
-
-    widthChange = (valueWidth) => {
-        this.setState({
-            mainWidth: valueWidth
-        })
-
-        this.mainWidthChange()
-    } 
     
     render() {
         return (
             <Fragment>
-                <Header rate={this.state.rate} actionMenuClick={(value) => this.widthChange(value)}/>
-                
-                <div className='bg-slate-900 flex pt-20 px-6 lg:px-12 xl:px-36 gap-5'>
-                    <main className={this.state.class} style={{transition: "0.3s"}}>
-                        <CardWithoutDetails/>
+                <Header rate={this.state.rate}/>
 
-                        <GiveRate actionRate={(value) => this.rateChange(value)}/>
+                <main className="bg-slate-900 pt-20 px-6 lg:px-12 xl:px-36 gap-5">
+                    <CardWithoutDetails/>
 
-                        <ListKnowledge/>
-                        <ListTools/>
+                    <GiveRate actionRate={(value) => this.rateChange(value)}/>
 
-                        <Comment/>
-                        
-                    </main>
+                    <ListKnowledge/>
+                    <ListTools/>
 
-                    <Sidebar width={this.state.mainWidth}/>
-                </div>
+                    <Comment/>
+                </main>
 
                 <Footer/>
             </Fragment>

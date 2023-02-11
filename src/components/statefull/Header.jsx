@@ -1,34 +1,25 @@
-import HeaderRate from '../stateless/props/HeaderRate'
+import React, { Fragment } from 'react'
 import logo from './../../assets/images/logo512.png'
+import HeaderRate from '../stateless/props/HeaderRate'
 import burgerMenu from './../../assets/icons/menu.svg'
 import navbarScroll from '../../features/navbarScroll'
-import React, { Fragment } from 'react'
+import NavbarPopup from './NavbarPopup'
 
 class Header extends React.Component {
     state = {
-        condition: false,
+        classID: "hidden fixed top-0 left-0 z-50 w-full h-screen"
     }
 
-    mainWidth = () => {
-        if (this.state.condition) {
-            this.props.actionMenuClick("450px")
-        } else {
-            this.props.actionMenuClick("55px")
-        }
+    showNavbar = () => {
+        this.setState({
+            classID: "fixed top-0 left-0 z-50 w-full h-screen"
+        })
     }
 
-    navbarAction = () => {
-        if (this.state.condition) {
-            this.setState({
-                condition: false
-            })
-        } else {
-            this.setState({
-                condition: true
-            })
-        }
-
-        this.mainWidth()
+    closeNavbar = (newElement) => {
+        this.setState({
+            classID: newElement
+        })
     }
 
     render() {
@@ -36,7 +27,7 @@ class Header extends React.Component {
 
         return (
             <Fragment>
-                <header className='fixed w-full top-0 px-6 lg:px-12 xl:px-36 h-16 flex items-center justify-between bg-slate-900'>
+                <header className='z-20 fixed w-full top-0 px-6 lg:px-12 xl:px-36 h-16 flex items-center justify-between bg-slate-900'>
                     <figure className='flex items-center gap-3 lg:gap-4'>
                         <img src={logo} alt="logo react" className='w-5 lg:w-6'/>
                         <h1 className='text-blue-50 text-sm lg:text-base'>Sinau ReactJS</h1>
@@ -45,11 +36,13 @@ class Header extends React.Component {
                     <div id="group" className='flex gap-3 lg:gap-8'>
                         <HeaderRate rate={this.props.rate}/>
 
-                        <button onClick={this.navbarAction}>
+                        <button onClick={this.showNavbar}>
                             <img src={burgerMenu} alt="icon burger menu" className='w-6 lg:w-7'/>
                         </button>
                     </div>
                 </header>
+
+                <NavbarPopup propert={this.state.classID} newElement={(element) => this.closeNavbar(element)}/>
             </Fragment>
         )
     }

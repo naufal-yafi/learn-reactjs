@@ -17,7 +17,7 @@ const Footer = () => {
             </p>
 
             <p className='text-sm mt-5 text-blue-300'>
-                Dev: Muhammad Naufal Yafi'
+                Penulis: Muhammad Naufal Yafi'
             </p>
         </footer>
     )

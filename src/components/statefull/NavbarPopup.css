@@ -1,0 +1,11 @@
+.icon-close {
+  transition: .5s;
+}
+
+.icon-close:hover {
+  transform: rotate(180deg);
+}
+
+li {
+  transition: 0.3s;
+}
