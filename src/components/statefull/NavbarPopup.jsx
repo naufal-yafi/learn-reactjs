@@ -1,9 +1,9 @@
 import React from "react";
+import './NavbarPopup.css'
+import iconX from './../../assets/icons/x.svg'
 import iconHome from './../../assets/icons/home.svg'
 import iconHelp from './../../assets/icons/help-circle.svg'
 import iconBook from './../../assets/icons/book-open.svg'
-import './NavbarPopup.css'
-import GiveRate from "../../features/GiveRate";
 
 class NavbarPopup extends React.Component {
     closeNavbar = () => {
@@ -25,7 +25,7 @@ class NavbarPopup extends React.Component {
                 <div className="w-full h-screen bg-slate-900 opacity-95"></div>
 
                 <button className="btn-close z-50 absolute top-0 left-0 w-full h-16 px-6 lg:px-12 xl:px-36 flex justify-end items-center" onClick={this.closeNavbar}>
-                    <img src={iconHome} alt="icon close" className="icon-close w-5 lg:w-6"/>
+                    <img src={iconX} alt="icon close" className="icon-close w-5 lg:w-6"/>
                 </button>
 
                 <nav className="z-30 absolute text-slate-200 top-0 left-0 w-full h-screen flex justify-center items-center">

@@ -2,8 +2,8 @@ const InputComment = () => {
     return (
         <section>
             <hgroup>
-                <h1 className="mt-6 text-xl font-bold">Komentar:</h1>
-                <p className="mt-1 mb-4 text-slate-400">Berikan komentar untuk bahan evaluasi baik pada project ini maupun pada project berikutnya.</p>
+                <h1 className="mt-6 text-xl font-bold">Berikan Ulasan:</h1>
+                <p className="mt-1 mb-4 text-slate-400">Berikan ulasan terbaikmu untuk bahan evaluasi saya baik pada project ini maupun pada project berikutnya.</p>
             </hgroup>
 
             <div id="input-group" className="w-full rounded-lg bg-slate-800 px-5 py-3 flex flex-col items-end gap-6">

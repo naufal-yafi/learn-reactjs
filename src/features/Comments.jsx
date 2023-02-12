@@ -1,56 +1,26 @@
 import React from "react";
+import axios from "axios";
 import InputComment from "../components/stateless/InputComment";
 import CommentCard from "../components/stateless/props/CommentCard";
 
 class Comment extends React.Component {
-
     state = {
-        newComments: ""
+        dataFeedback: []
     }
 
-    comments = [
-        "UI enak dilihat penataan layout yang compact. Namun, pemilihan warna biru yang terlalu mendominasi akan membuat mata sakit jika terlalu lama menggunakannya.",
-        "Bahasa yang digunakan cukup membingungkan saya khususnya pada page penjelasan ditambah contoh penggunaan source code malah membuat saya semakin bingung"
-    ]
+    componentDidMount() {
+        axios.get(process.env.REACT_APP_ENDPOINT)
+        .then((res) => this.setState({
+            dataFeedback: res.data
+        }))
+    }
 
-    emote = [
-        "😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😊", "😋", "😎", "😍", "😘", "🥰", "😗", "😙", "🥲", "😚", "🙂",
-        "🤗", "🤩", "🤔", "🫡", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "🥱", "😴", "😌", "😛",
-        "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🫤", "🙃", "🫠", "🤑", "😲", "☹️", "🙁", "😖", "😞", "😟", "😨", "😩", "😤", "😢",
-        "🤯", "😭", "😬", "😮‍💨", "😦", "😧", "😰", "😱", "🥵", "🥶", "😳", "🤪", "😵", "😵‍💫", "🥴", "😠", "😡", "😷", "🤒", "🤕", "🤢",
-        "🤮", "🤧", "😇", "😇", "🥳", "🤥", "🥸", "🤫", "🥺", "🤭", "🥹", "🫢", "🤠", "🫣", "🤡", "🧐", "🤓"
-    ]
-
-    date = [
-        "06-02-2023,  13.45",
-        "01-02-2023,  09.34"
-    ]
-
-    getNewComment = (newValue) => {
-        if (this.state.newComments !== newValue) {
-            this.setState({
-                newComments: newValue
-            })
+    addZero = (number) => {
+        if (number < 10) {
+            return `0${number}`
         } else {
-            alert("Anda sudah mengomentari hal yang sama!")
+            return number
         }
-    }
-
-    getDateNow = () => {
-        const date = new Date()
-
-        return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}, ${date.getHours()}.${date.getMinutes()}`
-    }
-    
-    listComments = () => {
-        return this.comments.map((comment, i) => {
-            return <CommentCard 
-                emote={this.emote[Math.floor((Math.random() * (this.emote.length - 1)) + 1)]} 
-                name="Anonymous" 
-                date={this.getDateNow()}
-                comment={comment}
-                />
-            })
     }
         
     render() {
@@ -60,7 +30,14 @@ class Comment extends React.Component {
 
                 <hr  className="mt-10 mb-10 border-slate-700 border-2 rounded-full"/>
 
-                <this.listComments/>
+                {
+                    this.state.dataFeedback.map(feedback => {
+                        const date = new Date(feedback.date)
+                        const formatDate = `${this.addZero(date.getDate())}-${this.addZero(date.getMonth())}-${date.getFullYear()}, ${this.addZero(date.getHours())}.${this.addZero(date.getMinutes())}`
+                        
+                        return <CommentCard rate={Number(feedback.rate)} name={feedback.name} date={formatDate} text={feedback.feedback}/>
+                    })
+                }
             </div>
         )
     }
