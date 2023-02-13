@@ -1,38 +1,11 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import InputComment from "../components/stateless/InputComment";
+import InputComment from "./InputComment";
+import LoadingComment from "./LoadingComment";
+import React, { useEffect, useState } from "react";
 import CommentCard from "../components/stateless/props/CommentCard";
-import LoadingComment from "../components/stateless/LoadingComment";
-
-// const GetData = () => {
-//     const [feedbackList, setFeedBackList] = useState([])
-//     const [loading, setLoading] = useState(false)
-
-//     useEffect(() => {
-//         axios.get(process.env.REACT_APP_ENDPOINT).then(res => {
-//             setFeedBackList(res.data)
-//             setLoading(true)
-//         })
-//     }, [])
-
-//     return (
-//         <div>
-//             {loading ? 
-//             feedbackList.map(feedback => {
-//                 const date = new Date(feedback.date)
-//                 const formatDate = `${this.addZero(date.getDate())}-${this.addZero(date.getMonth())}-${date.getFullYear()}, ${this.addZero(date.getHours())}.${this.addZero(date.getMinutes())}`
-                
-//                 return <CommentCard rate={Number(feedback.rate)} name={feedback.name} date={formatDate} text={feedback.feedback}/>
-//             })
-//             :
-//             <LoadingComment/>}
-//         </div>
-//     )
-// }
 
 class Comment extends React.Component {
-
-    GetData = () => {
+    GetAllDataFeedback = () => {
         const [feedbackList, setFeedBackList] = useState([])
         const [loading, setLoading] = useState(false)
 
@@ -69,11 +42,11 @@ class Comment extends React.Component {
     render() {
         return(
             <div className="mb-6 text-slate-200">
-                <InputComment/>
+                <InputComment rate={this.props.rate}/>
 
-                <hr  className="mt-10 mb-10 border-slate-700 border-2 rounded-full"/>
+                <hr  className="mt-5 mb-5 border-slate-700 border-2 rounded-full"/>
 
-                <this.GetData/>
+                <this.GetAllDataFeedback/>
             </div>
         )
     }

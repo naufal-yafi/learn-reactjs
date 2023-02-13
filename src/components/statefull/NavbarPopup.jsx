@@ -2,8 +2,8 @@ import React from "react";
 import './NavbarPopup.css'
 import iconX from './../../assets/icons/x.svg'
 import iconHome from './../../assets/icons/home.svg'
-import iconHelp from './../../assets/icons/help-circle.svg'
 import iconBook from './../../assets/icons/book-open.svg'
+import iconHelp from './../../assets/icons/help-circle.svg'
 
 class NavbarPopup extends React.Component {
     closeNavbar = () => {

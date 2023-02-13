@@ -3,8 +3,8 @@ import Comment from '../features/Comments'
 import GiveRate from '../features/GiveRate'
 import Header from '../components/statefull/Header'
 import Footer from '../components/stateless/Footer'
-import ListTools from './../components/statefull/ListTools'
-import ListKnowledge from '../components/statefull/ListKnowledge'
+// import ListTools from './../components/statefull/ListTools'
+// import ListKnowledge from '../components/statefull/ListKnowledge'
 import CardWithoutDetails from '../components/stateless/CardWithoutDetails'
 
 class HomePage extends React.Component {
@@ -28,10 +28,10 @@ class HomePage extends React.Component {
 
                     <GiveRate actionRate={(value) => this.rateChange(value)}/>
 
-                    <ListKnowledge/>
-                    <ListTools/>
+                    {/* <ListKnowledge/>
+                    <ListTools/> */}
 
-                    <Comment/>
+                    <Comment rate={this.state.rate}/>
                 </main>
 
                 <Footer/>

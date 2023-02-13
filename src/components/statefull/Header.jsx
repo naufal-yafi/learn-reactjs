@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
+import NavbarPopup from './NavbarPopup'
 import logo from './../../assets/images/logo512.png'
 import HeaderRate from '../stateless/props/HeaderRate'
 import burgerMenu from './../../assets/icons/menu.svg'
 import navbarScroll from '../../features/navbarScroll'
-import NavbarPopup from './NavbarPopup'
 
 class Header extends React.Component {
     state = {
